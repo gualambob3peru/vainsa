@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vainsa</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="estilo2.css">
+
+    <script>
+        $(function(){
+            let num= 1;
+            $(".capaInvisible").click(function(){
+                $(".capaOscura").remove();
+                if($(".copiar").length==num) {$(".capaInvisible").remove();return;}
+                creaCapas($(".copiar").eq(num));
+                num++;
+            });
+
+            creaCapa = function(){
+                return $("<div class='capaOscura'></div>").clone();
+            }
+
+            let creaCapas = function(value){
+                let div = $(value),
+                    top = div.offset().top,
+                    left = div.offset().left,
+                    width = div.width(),
+                    height = div.height();
+                
+              
+                let pIzq = left,
+                    pDer = pIzq + width,
+                    pArr = top,
+                    pAba = top + height;
+
+                let capaIzquierda = creaCapa().css({top:0,height:$("html").height(),width:left}),
+                    capaDerecha = creaCapa().css({top:0,left:pDer,height:$("html").height(),width:$("html").width()-pDer}),
+                    capaArriba = creaCapa().css({top:0,left:pIzq,height:pArr,width:width}),
+                    capaAbajo = creaCapa().css({top:pAba,left:pIzq,height:$("html").height()-pAba,width:width});
+
+
+                $("body").append(capaIzquierda);
+                $("body").append(capaDerecha);
+                $("body").append(capaArriba);
+                $("body").append(capaAbajo);
+            }
+
+            $("#siClaro").click(function(){
+                $(".capaInicio").remove();
+                creaCapas($(".copiar").eq(0));
+            });
+            $("#site").click(function(){
+                $(".capaInicio").remove();
+                $(".capaInvisible").remove();
+            });
+
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0 copiar">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+
+
+      <div class="container">
+
+            <br>
+            <div class="row">
+                <div class="col-md-6 ">
+                    <img class="img-fluid copiar" src="images/Koala.jpg" alt="">
+                </div>
+                <div class="col-md-6">
+                    <img class="img-fluid" src="images/Lighthouse.jpg" alt="">
+                </div>
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="col-md-8">
+                    <form class="">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Email address</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Password</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+                </div>
+
+                <div class="col-md-4">
+                    <ul class="list-group copiar">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                      </ul>
+                </div>
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="col-md-6 ">
+                    <img class="img-fluid copiar" src="images/Koala.jpg" alt="">
+                </div>
+                <div class="col-md-6">
+                    <img class="img-fluid copiar" src="images/Lighthouse.jpg" alt="">
+                </div>
+            </div>
+
+
+
+       </div>
+
+    <div class="capaInvisible"></div>
+
+    <div class="capaInicio text-white text-center">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 class="">¡Bienvenido!</h1>
+        <h2>VAINSA INNOVA</h2>
+        <h3>¿QUIERES CONOCER LO NUEVO QUE TRAE NUESTRA WEB?</h3>
+        <br>
+        <button id="siClaro" class="btn btn-outline-success">Si claro</button>
+        <button id="site" class="btn btn-outline-info">Ir al site</button class="btn btn-outline-success">
+        
+    </div>
+</body>
+    
+</html>

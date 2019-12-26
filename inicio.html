@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vainsa</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="estilo.css">
+
+    <script>
+        $(function(){
+            total = 0;
+            $(".copiar").each(function(index,value){
+                let x = $(value).offset().left,
+                    y = $(value).offset().top,
+                    width = $(value).width();
+
+                let copia = $(value).clone(),
+                    padre = $(value).parent();
+
+                $("body").append(copia);
+                copia.css("position","absolute");
+                copia.css("top",y);
+                copia.css("left",x);
+                copia.css("width",width+5);
+                copia.css("z-index",1);
+                copia.css("display","none");
+                copia.css("background",padre.css("background-color"));
+                copia.addClass("copiarFra");
+                copia.addClass("copiar"+index);
+                
+                total++;
+            });
+            num = 1;
+            $(".copiar0").css("display","block");
+            $(".copiarFraDiv").css("display","none");
+            $(".copiarFraDiv0").css("display","block");
+
+            $(".capa").click(function(){
+                $(".copiarFra").css("display","none");
+                $(".copiar"+num).css("display","block");
+                $(".copiarFraDiv").css("display","none");
+                $(".copiarFraDiv"+num).css("display","block");
+                num++;
+                if(total+1==num){
+                    $(".capaFinal").css("display","block");
+                }
+
+                
+                    
+            });
+
+            $("#siClaro").click(function(){
+                $(".capaInicio").remove();
+            });
+            $("#site").click(function(){
+                $(".modal-dark").remove();
+                $(".capaInicio").remove();
+                $(".copiarFra").remove();
+                $(".capa").remove();
+            });
+
+            $(".copiarFraDiv0").css("left",parseInt($(".copiar0").css("left"))-100);
+            $(".copiarFraDiv0").css("top",parseInt($(".copiar0").css("top"))+60);
+
+            $(".copiarFraDiv1").css("left",parseInt($(".copiar1").css("left")) + parseInt($(".copiar1").css("width")) + 50);
+            $(".copiarFraDiv1").css("top",parseInt($(".copiar1").css("top"))+100);
+
+            $(".copiarFraDiv2").css("left",parseInt($(".copiar2").css("left")) -350);
+            $(".copiarFraDiv2").css("top",parseInt($(".copiar2").css("top"))+100);
+        })
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+        <a class="navbar-brand" href="#">Vainsa</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Enlace</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categorias
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Accion 1</a>
+                <a class="dropdown-item" href="#">Accion 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Accion 3</a>
+              </div>
+            </li>
+            
+          </ul>
+          <form class="form-inline my-2 my-lg-0 copiar">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+          </form>
+        </div>
+      </nav>
+
+      <br>
+      <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img class="img-fluid copiar" src="images/koala.jpg" alt="" id="miImagen">
+            </div>
+            <div class="col-md-6">
+                <img class="img-fluid " src="images/Penguins.jpg" alt="">
+            </div>
+        </div>
+
+        <br>
+        <br>
+        
+
+        <div class="row">
+            <div class="col-md-8">
+                <form>
+                    <div class="form-group row">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                      <div class="col-sm-10">
+                        <input type="email" class="form-control" id="inputEmail3">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                      <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword3">
+                      </div>
+                    </div>
+                    <fieldset class="form-group">
+                      <div class="row">
+                        <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+                        <div class="col-sm-10">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                            <label class="form-check-label" for="gridRadios1">
+                              First radio
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                            <label class="form-check-label" for="gridRadios2">
+                              Second radio
+                            </label>
+                          </div>
+                          <div class="form-check disabled">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+                            <label class="form-check-label" for="gridRadios3">
+                              Third disabled radio
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+                    <div class="form-group row">
+                      <div class="col-sm-2">Checkbox</div>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="gridCheck1">
+                          <label class="form-check-label" for="gridCheck1">
+                            Example checkbox
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                      </div>
+                    </div>
+                  </form>
+            </div>
+            <div class="col-md-4 copiar">
+                <ul class="list-group">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Morbi leo risus</li>
+                    <li class="list-group-item">Porta ac consectetur ac</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                  </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal-dark">
+
+    </div>
+
+    <div id="almacen">
+
+    </div>
+    <div class="capa">
+
+    </div>
+    <div class="capaInicio text-white text-center">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 class="">¡Bienvenido!</h1>
+        <h2>VAINSA INNOVA</h2>
+        <h3>¿QUIERES CONOCER LO NUEVO QUE TRAE NUESTRA WEB?</h3>
+        <br>
+        <button id="siClaro" class="btn btn-outline-success">Si claro</button>
+        <button id="site" class="btn btn-outline-info">Ir al site</button class="btn btn-outline-success">
+        
+    </div>
+
+    <div class="capaFinal text-white text-center">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h3>AHORA QUE CONOCES</h3>
+        <h3>AHORA QUE CONOCES NUESTRA TIENDA VIRTUAL</h3>
+        <h2>¡INAGURALA CON NOSOTROS!</h2>
+        <h1>BIENVENIDO!</h1>
+        
+    </div>
+
+    <div class="copiarFraDiv copiarFraDiv0 flotar text-white" style="height: 200px;">
+        <h1>¡Nuevo Buscador!</h1>
+    </div>
+    <div class="copiarFraDiv copiarFraDiv1 flotar text-white" style="height: 200px;">
+        <h1>¡Mira al koala!</h1>
+    </div>
+    <div class="copiarFraDiv copiarFraDiv2 flotar text-white" style="height: 200px;">
+        <h1>!Lista de clientes!</h1>
+    </div>
+    <div class="copiarFraDiv copiarFraDiv3 flotar text-white" style="height: 200px;">
+        <h1>Texto 3</h1>
+    </div>
+</body>
+</html>
