@@ -8,7 +8,9 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/8cb5e7477f.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="estilo2.css">
@@ -18,10 +20,53 @@
             let num= 1;
             $(".capaInvisible").click(function(){
                 $(".capaOscura").remove();
-                if($(".copiar").length==num) {$(".capaInvisible").remove();return;}
+                $(".divCopiar").css("display","none");
+                if($(".copiar").length==num) {
+                    $(".capaInvisible").remove();
+                    $(".fireworks").css("display","block");
+                    $(".fireworks").animate({"top":"-=200px"},5000);
+                    $(".frase_final").css("display","block");
+                    $(".cinta").css("display","block");
+                    $("body").append($("<div class='capaOscura' style='top:0;width:100%;height:100%'></div>"));
+                    $("html").scrollTop(0);
+                    return;
+                }
+
                 creaCapas($(".copiar").eq(num));
+                mostrarDivCapa($(".divCopiar"+num));
+                
+                switch (num) {
+                    case 1:
+                        $(".divCopiar"+num).css({
+                            "left":$(".copiar").eq(num).offset().left+300,
+                            "top":$(".copiar").eq(num).offset().top+100
+                            });
+                        break;
+                    case 2:
+                        $(".divCopiar"+num).css({
+                            "left":$(".copiar").eq(num).offset().left+$(".copiar").eq(num).width()+parseInt($(".copiar").eq(num).css("padding-left"))+parseInt($(".copiar").eq(num).css("padding-right")) + 100,
+                            "top":$(".copiar").eq(num).offset().top+100
+                            });
+                        break;
+                    case 3:
+                        $(".divCopiar"+num).css({
+                            "left":$(".copiar").eq(num).offset().left+500,
+                            "top":$(".copiar").eq(num).offset().top-200
+                            });
+                        break;
+                    default:
+                        break;
+                }
+
                 num++;
+                
             });
+
+            mostrarDivCapa = function(miDiv){
+                let div = $(miDiv);
+
+                div.css("display","block");
+            }
 
             creaCapa = function(){
                 return $("<div class='capaOscura'></div>").clone();
@@ -31,8 +76,8 @@
                 let div = $(value),
                     top = div.offset().top,
                     left = div.offset().left,
-                    width = div.width(),
-                    height = div.height();
+                    width = div.width()+parseInt(div.css("padding-left"))+parseInt(div.css("padding-right")),
+                    height = div.height()+parseInt(div.css("padding-bottom"))+parseInt(div.css("padding-top"));
                 
               
                 let pIzq = left,
@@ -50,118 +95,82 @@
                 $("body").append(capaDerecha);
                 $("body").append(capaArriba);
                 $("body").append(capaAbajo);
+                $("html").scrollTop(top-100)
             }
 
             $("#siClaro").click(function(){
                 $(".capaInicio").remove();
                 creaCapas($(".copiar").eq(0));
+                $(".divCopiar0").css("display","block");
+                $(".divCopiar0").css("left",$(".copiar").eq(0).offset().left-500);
             });
             $("#site").click(function(){
                 $(".capaInicio").remove();
                 $(".capaInvisible").remove();
             });
-
-
-
         });
     </script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0 copiar">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+    <div class="fondoCeleste text-center barraCeleste1 text-white pt-3">
+        <span class="font-weight-bold ">Delivery GRATIS por lanzamiento,</span> compras mayores a S/500
+    </div>
+    <div class="fondoAzul text-white barraAzul1 pt-3 f18">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-9">
+                    <img src="images/logo.jpg" alt="">
+                </div>
+                <div class="col-md-3 copiar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" name="" id="" value="Buscar" class="inputBuscar">
+                     <i class="fas fa-user"></i>
+                     <i class="far fa-heart"></i>
+                     <i class="fas fa-cart-arrow-down"></i>
+                </div>
+            </div>
         </div>
-      </nav>
+    </div>
 
+    <div class="container">
+        <div class="row text-center barraBlanco1 pt-2 copiar">
+            <div class="col"><img src="images/promociones.png" alt=""> <br>       PROMOCIONES</div>
+            <div class="col"><img src="images/marcas.png" alt=""> <br>       MARCAS</div>
+            <div class="col"><img src="images/griferia.png" alt=""> <br>       GRIFERIA</div>
+            <div class="col"><img src="images/sanitarios.png" alt=""> <br>       SANITARIOS</div>
+            <div class="col"><img src="images/accesorios.jpg" alt=""> <br>       ACCESORIOS</div>
+            <div class="col"><img src="images/complementos.png" alt=""> <br>       COMPLEMENTOS</div>
+            <div class="col"><img src="images/renovacion.png" alt=""> <br>       RENOVACION</div>
+            <div class="col"><img src="images/catalogos.png" alt=""> <br>       CATALOGOS</div>
+            
+        </div>
+    </div>
 
-      <div class="container">
-
-            <br>
+    <div>
+        <div class="barraCentral1 container-fluid">
             <div class="row">
-                <div class="col-md-6 ">
-                    <img class="img-fluid copiar" src="images/Koala.jpg" alt="">
+
+                <div class="col fondoPlomo barraPlomo1 text-center copiar">
+                    <img src="images/logo_vainsa.png" alt="" class="img-fluid">
                 </div>
-                <div class="col-md-6">
-                    <img class="img-fluid" src="images/Lighthouse.jpg" alt="">
+                <div class="col fondoCeleste2 barraCeleste2 text-center">
+                    <img src="images/logo_italgrif.png" alt="" class="img-fluid">
                 </div>
             </div>
+        </div>
+    </div>
 
-            <br>
-            <div class="row">
-                <div class="col-md-8">
-                    <form class="">
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Email address</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                      </form>
-                </div>
+    <div class="fondoCeleste text-center barraCeleste1 text-white pt-3 copiar">
+        <span class="font-weight-bold ">20% DE DESCUENTO </span> POR LANZAMIENTO
+    </div>
 
-                <div class="col-md-4">
-                    <ul class="list-group copiar">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                      </ul>
-                </div>
-            </div>
-
-            <br>
-            <div class="row">
-                <div class="col-md-6 ">
-                    <img class="img-fluid copiar" src="images/Koala.jpg" alt="">
-                </div>
-                <div class="col-md-6">
-                    <img class="img-fluid copiar" src="images/Lighthouse.jpg" alt="">
-                </div>
-            </div>
-
-
-
-       </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+     
 
     <div class="capaInvisible"></div>
 
@@ -172,12 +181,51 @@
         <br>
         <br>
         <h1 class="">¡Bienvenido!</h1>
-        <h2>VAINSA INNOVA</h2>
-        <h3>¿QUIERES CONOCER LO NUEVO QUE TRAE NUESTRA WEB?</h3>
+        <span class="colorCeleste f22">A NUESTRA TIENDA ONLINE</span>
+        <h3>VAINSA INNOVA</h3>
+        <h3>¿QUIERES CONOCER LO NUEVO QUE TRAE NUESTRO SISTEMA?</h3>
         <br>
-        <button id="siClaro" class="btn btn-outline-success">Si claro</button>
-        <button id="site" class="btn btn-outline-info">Ir al site</button class="btn btn-outline-success">
+        <button id="siClaro" class="boton">Si claro</button>
+        <button id="site" class="boton">Ir al site</button class="btn btn-outline-success">
         
+    </div>
+
+    <div class="divCopiar divCopiar0">
+        <h3>¡BUSCADOR RENOVADO!</h3>
+        <span>Ahora podrás heacer búsqueda con más facilidad, incluso </span><br>
+        <span>consultar tu lista de deseos o tu carrito de compras!</span>
+    </div>
+    <div class="divCopiar divCopiar1">
+        <h3>¡NUEVO MENÚ!</h3>
+        <span>Explora nuestros productos, descarga los catalogos o juega con </span><br>
+        <span>el simulador, todos estas opciones estás disponibles en nuestro</span><br>
+        <span>renovado menu</span>
+    </div>
+    <div class="divCopiar divCopiar2">
+        <h3>¡ENLACES DIRECTOS</h3>
+        <h3>A NUESTRAS MARCAS</h3>
+        <span>Accede fácilmente, con un solo clic a nuestras   </span><br>
+        <span>marcas líderes y conoce nuestros productos y</span><br>
+        <span>promociones</span>
+    </div>
+    <div class="divCopiar divCopiar3">
+        <h3>¡OBTÉN DESCUENTOS </h3>
+        <h3>ESPECIALES!</h3>
+        <span>Ahora pódras estar enterado de nuestras   </span><br>
+        <span>promociones vigentes, y obtener descuentos</span><br>
+        <span>exclusivos.</span>
+    </div>
+    <div class="fireworks">
+        <img src="images/fireworks.png" alt="" style="width: 100%;">
+    </div>
+    <div class="frase_final">
+        <img src="images/frase_final.png" alt="" style="width: 50%;">
+        <br>
+    </div>
+    <div class="cinta">
+        <div class="fondoCeleste text-center barraCeleste1 text-white pt-3 copiar">
+            -
+        </div>
     </div>
 </body>
     
