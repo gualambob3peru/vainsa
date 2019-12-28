@@ -17,6 +17,20 @@
 
     <script>
         $(function(){
+
+            $(".cinta").click(function(){
+                $(".cinta").css("display","none");
+                $(".cintaRota1").css("display","block");
+                $(".cintaRota2").css("display","block");
+
+                setTimeout(function(){
+                    $(".cintaRota1").css("transform","rotate(80deg)");
+                    $(".cintaRota2").css("transform","rotate(-80deg)");
+                },100);
+                setTimeout(function(){
+                    location.href="https://vainsainnova.com.pe/";
+                },5000);
+            });
             let num= 1;
             $(".capaInvisible").click(function(){
                 $(".capaOscura").remove();
@@ -27,8 +41,10 @@
                     $(".fireworks").animate({"top":"-=200px"},5000);
                     $(".frase_final").css("display","block");
                     $(".cinta").css("display","block");
-                    $("body").append($("<div class='capaOscura' style='top:0;width:100%;height:100%'></div>"));
+                    $("body").append($("<div class='capaOscura' style='position:fixed;top:0;width:100%;height:100%'></div>"));
                     $("html").scrollTop(0);
+                    
+                    $(".cinta").css("cursor",'url("//localhost/vainsa/images/tijera2.png") 0 0,pointer');
                     return;
                 }
 
@@ -39,7 +55,7 @@
                     case 1:
                         $(".divCopiar"+num).css({
                             "left":$(".copiar").eq(num).offset().left+300,
-                            "top":$(".copiar").eq(num).offset().top+100
+                            "top":$(".copiar").eq(num).offset().top+150
                             });
                         break;
                     case 2:
@@ -50,7 +66,7 @@
                         break;
                     case 3:
                         $(".divCopiar"+num).css({
-                            "left":$(".copiar").eq(num).offset().left+500,
+                            "left":"50%",
                             "top":$(".copiar").eq(num).offset().top-200
                             });
                         break;
@@ -182,7 +198,7 @@
         <br>
         <h1 class="">¡Bienvenido!</h1>
         <span class="colorCeleste f22">A NUESTRA TIENDA ONLINE</span>
-        <h3>VAINSA INNOVA</h3>
+        <h3><img src="images/logo.jpg"></h3>
         <h3>¿QUIERES CONOCER LO NUEVO QUE TRAE NUESTRO SISTEMA?</h3>
         <br>
         <button id="siClaro" class="boton">Si claro</button>
@@ -190,16 +206,19 @@
         
     </div>
 
-    <div class="divCopiar divCopiar0">
+    <div class="divCopiar divCopiar0 text-center">
         <h3>¡BUSCADOR RENOVADO!</h3>
         <span>Ahora podrás heacer búsqueda con más facilidad, incluso </span><br>
         <span>consultar tu lista de deseos o tu carrito de compras!</span>
+        <img src="images/flecha2.png" alt="" class="flecha1">
     </div>
-    <div class="divCopiar divCopiar1">
+    <div class="divCopiar divCopiar1 text-center">
         <h3>¡NUEVO MENÚ!</h3>
         <span>Explora nuestros productos, descarga los catalogos o juega con </span><br>
         <span>el simulador, todos estas opciones estás disponibles en nuestro</span><br>
         <span>renovado menu</span>
+        <img src="images/flecha2.png" alt="" class="flecha2">
+        <img src="images/flecha.png" alt="" class="flecha3">
     </div>
     <div class="divCopiar divCopiar2">
         <h3>¡ENLACES DIRECTOS</h3>
@@ -207,6 +226,7 @@
         <span>Accede fácilmente, con un solo clic a nuestras   </span><br>
         <span>marcas líderes y conoce nuestros productos y</span><br>
         <span>promociones</span>
+        <img src="images/flecha.png" alt="" class="flecha4">
     </div>
     <div class="divCopiar divCopiar3">
         <h3>¡OBTÉN DESCUENTOS </h3>
@@ -214,6 +234,7 @@
         <span>Ahora pódras estar enterado de nuestras   </span><br>
         <span>promociones vigentes, y obtener descuentos</span><br>
         <span>exclusivos.</span>
+        <img src="images/flecha.png" alt="" class="flecha5">
     </div>
     <div class="fireworks">
         <img src="images/fireworks.png" alt="" style="width: 100%;">
@@ -223,9 +244,13 @@
         <br>
     </div>
     <div class="cinta">
-        <div class="fondoCeleste text-center barraCeleste1 text-white pt-3">
-            -
-        </div>
+        <img src="images/cinta.png" alt="" style="width: 100%;">
+    </div>
+    <div class="cintaRota1">
+        <img src="images/tijera11.png" alt="" style="width: 50%;"">
+    </div>
+    <div class="cintaRota2">
+        <img src="images/tijera12.png" alt="" style="width: 50%;">
     </div>
 </body>
     

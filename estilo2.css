@@ -31,6 +31,7 @@
 
     body{
         font-family: 'DINPro Medium';
+        
     }
 .boton{
     background: transparent;
@@ -65,10 +66,30 @@
     width: 100%;
     text-align: center;
     position: fixed;
-    bottom: 100px;
+    bottom: 150px;
     left: 0;
     display: none;
     z-index: 3;
+}
+.cintaRota1{
+    text-align: left;
+    position: fixed;
+    bottom: 200px;
+    left: 0;
+    display: none;
+    z-index: 3;
+    transition-duration: 4s;
+    transform-origin: left;
+}
+.cintaRota2{
+    text-align: right;
+    position: fixed;
+    bottom: 200px;
+    left: 0;
+    display: none;
+    z-index: 3;
+    transform-origin: right;
+    transition-duration: 4s;
 }
 
 .capaOscura{
@@ -97,7 +118,7 @@
     top: 0;
     z-index: 3;
     opacity: 0.9;
-
+    
 }
 
 .divCopiar{
@@ -170,3 +191,41 @@
 .f22{
     font-size: 22px;;
 }
+.flecha1{
+    width: 100px;
+    position: absolute;
+    top: -53px;
+    transform: rotate(167deg);
+}
+
+
+.flecha2{
+    left:-95px;
+     width: 100px;
+     position: absolute;
+     top: -18px;
+     transform: rotate(88deg);
+}
+
+.flecha3{
+    left: 460px;
+    width: 100px;
+    position: absolute;
+    top: -20px;
+    transform: rotate(-89deg);
+}
+.flecha4{
+    width: 100px;
+    position: absolute;
+    top: -53px;
+    transform: rotate(167deg);
+    left: -83px;
+}
+.flecha5{
+    width: 100px;
+    position: absolute;
+    top: 88px;
+    transform: rotate(109deg);
+    left: -118px;
+}
+
