@@ -15,117 +15,7 @@
 
     <link rel="stylesheet" href="estilo2.css">
 
-    <script>
-        $(function(){
-
-            $(".cinta").click(function(){
-                $(".cinta").css("display","none");
-                $(".cintaRota1").css("display","block");
-                $(".cintaRota2").css("display","block");
-
-                setTimeout(function(){
-                    $(".cintaRota1").css("transform","rotate(80deg)");
-                    $(".cintaRota2").css("transform","rotate(-80deg)");
-                },100);
-                setTimeout(function(){
-                    location.href="https://vainsainnova.com.pe/";
-                },5000);
-            });
-            let num= 1;
-            $(".capaInvisible").click(function(){
-                $(".capaOscura").remove();
-                $(".divCopiar").css("display","none");
-                if($(".copiar").length==num) {
-                    $(".capaInvisible").remove();
-                    $(".fireworks").css("display","block");
-                    $(".fireworks").animate({"top":"-=200px"},5000);
-                    $(".frase_final").css("display","block");
-                    $(".cinta").css("display","block");
-                    $("body").append($("<div class='capaOscura' style='position:fixed;top:0;width:100%;height:100%'></div>"));
-                    $("html").scrollTop(0);
-                    
-                    $(".cinta").css("cursor",'url("images/tijera2.png") 0 0,pointer');
-                    return;
-                }
-
-                creaCapas($(".copiar").eq(num));
-                mostrarDivCapa($(".divCopiar"+num));
-                
-                switch (num) {
-                    case 1:
-                        $(".divCopiar"+num).css({
-                            "left":$(".copiar").eq(num).offset().left+300,
-                            "top":$(".copiar").eq(num).offset().top+150
-                            });
-                        break;
-                    case 2:
-                        $(".divCopiar"+num).css({
-                            "left":$(".copiar").eq(num).offset().left+$(".copiar").eq(num).width()+parseInt($(".copiar").eq(num).css("padding-left"))+parseInt($(".copiar").eq(num).css("padding-right")) + 100,
-                            "top":$(".copiar").eq(num).offset().top+100
-                            });
-                        break;
-                    case 3:
-                        $(".divCopiar"+num).css({
-                            "left":"50%",
-                            "top":$(".copiar").eq(num).offset().top-200
-                            });
-                        break;
-                    default:
-                        break;
-                }
-
-                num++;
-                
-            });
-
-            mostrarDivCapa = function(miDiv){
-                let div = $(miDiv);
-
-                div.css("display","block");
-            }
-
-            creaCapa = function(){
-                return $("<div class='capaOscura'></div>").clone();
-            }
-
-            let creaCapas = function(value){
-                let div = $(value),
-                    top = div.offset().top,
-                    left = div.offset().left,
-                    width = div.width()+parseInt(div.css("padding-left"))+parseInt(div.css("padding-right")),
-                    height = div.height()+parseInt(div.css("padding-bottom"))+parseInt(div.css("padding-top"));
-                
-              
-                let pIzq = left,
-                    pDer = pIzq + width,
-                    pArr = top,
-                    pAba = top + height;
-
-                let capaIzquierda = creaCapa().css({top:0,height:$("html").height(),width:left}),
-                    capaDerecha = creaCapa().css({top:0,left:pDer,height:$("html").height(),width:$("html").width()-pDer}),
-                    capaArriba = creaCapa().css({top:0,left:pIzq,height:pArr,width:width}),
-                    capaAbajo = creaCapa().css({top:pAba,left:pIzq,height:$("html").height()-pAba,width:width});
-
-
-                $("body").append(capaIzquierda);
-                $("body").append(capaDerecha);
-                $("body").append(capaArriba);
-                $("body").append(capaAbajo);
-                $("html").scrollTop(top-100)
-            }
-
-            $("#siClaro").click(function(){
-                $(".capaInicio").remove();
-                creaCapas($(".copiar").eq(0));
-                $(".divCopiar0").css("display","block");
-                $(".divCopiar0").css("left",$(".copiar").eq(0).offset().left-500);
-            });
-            $("#site").click(function(){
-                $(".capaInicio").remove();
-                $(".capaInvisible").remove();
-            });
-        });
-    </script>
+    <script src="js.js"></script>
 </head>
 
 <body>
@@ -142,8 +32,13 @@
                     <i class="fas fa-search"></i>
                     <input type="text" name="" id="" value="Buscar" class="inputBuscar">
                      <i class="fas fa-user"></i>
-                     <i class="far fa-heart"></i>
-                     <i class="fas fa-cart-arrow-down"></i>
+                     &nbsp;&nbsp;
+                     <i class="far fa-heart" style="position: relative;">
+                         <span class="badge-warning badge text-white f10" style="position: absolute;top:-7px;left: 15px;">0</span>
+                     </i>&nbsp;&nbsp;
+                     <i class="fas fa-cart-arrow-down"  style="position: relative;">
+                        <span class="badge-warning badge text-white f10" style="position: absolute;top:-7px;left: 15px;">0</span>
+                     </i>
                 </div>
             </div>
         </div>
@@ -244,7 +139,8 @@
         <br>
     </div>
     <div class="cinta">
-        <img src="images/cinta.png" alt="" style="width: 100%;">
+        <img src="images/cinta2.png" alt="" style="width: 100%;">
+        <div class="corte"></div>
     </div>
     <div class="cintaRota1">
         <img src="images/tijera11.png" alt="" style="width: 50%;"">
@@ -252,6 +148,8 @@
     <div class="cintaRota2">
         <img src="images/tijera12.png" alt="" style="width: 50%;">
     </div>
+
+    
 </body>
     
 </html>
