@@ -1,1 +1,169 @@
-$(function(){function i(i,t){return Math.floor(Math.random()*(t+1-i))+i}function t(i,t){return Math.random()*(t+1-i)+i}$(".corte").click(function(){$(".cinta").css("display","none"),$(".cintaRota1").css("display","block"),$(".cintaRota2").css("display","block"),setTimeout(function(){$(".cintaRota1").css("transform","rotate(80deg)"),$(".cintaRota2").css("transform","rotate(-80deg)"),fuegos()},100),setTimeout(function(){},5e3)});let a=1;$(".capaInvisible").click(function(){if($(".capaOscura").remove(),$(".divCopiar").css("display","none"),$(".copiar").length==a)return $(".capaInvisible").remove(),$(".frase_final").css("display","block"),$(".cinta").css("display","block"),$("body").append($("<div class='capaOscura' style='position:fixed;top:0;width:100%;height:100%'></div>")),$("html").scrollTop(0),void $(".cinta").css("cursor",'url("images/tijera2.png") 50 50,pointer');switch(s($(".copiar").eq(a)),mostrarDivCapa($(".divCopiar"+a)),a){case 1:$(".divCopiar"+a).css({left:$(".copiar").eq(a).offset().left+300,top:$(".copiar").eq(a).offset().top+150});break;case 2:$(".divCopiar"+a).css({left:$(".copiar").eq(a).offset().left+$(".copiar").eq(a).width()+parseInt($(".copiar").eq(a).css("padding-left"))+parseInt($(".copiar").eq(a).css("padding-right"))+100,top:$(".copiar").eq(a).offset().top+100});break;case 3:$(".divCopiar"+a).css({left:"50%",top:$(".copiar").eq(a).offset().top-200})}a++}),mostrarDivCapa=function(i){let t=$(i);t.css("display","block"),t.find("img").css("opacity","0"),t.find("img").animate({opacity:1},1e3)},creaCapa=function(){return $("<div class='capaOscura'></div>").clone()};let s=function(i){let t=$(i),a=t.offset().top,s=t.offset().left,e=t.width()+parseInt(t.css("padding-left"))+parseInt(t.css("padding-right")),o=t.height()+parseInt(t.css("padding-bottom"))+parseInt(t.css("padding-top")),c=s,p=c+e,n=a,l=a+o,r=creaCapa().css({top:0,height:$("html").height(),width:s}),d=creaCapa().css({top:0,left:p,height:$("html").height(),width:$("html").width()-p}),f=creaCapa().css({top:0,left:c,height:n,width:e}),h=creaCapa().css({top:l,left:c,height:$("html").height()-l,width:e});$("body").append(r),$("body").append(d),$("body").append(f),$("body").append(h),$("html").scrollTop(a-100)};$("#siClaro").click(function(){$(".capaInicio").remove(),s($(".copiar").eq(0)),$(".divCopiar0").css("display","block"),$(".divCopiar0").css("left",$(".copiar").eq(0).offset().left-500),$(".divCopiar0 img").css("opacity","0"),$(".divCopiar0 img").animate({opacity:1},3e3)}),$("#site").click(function(){$(".capaInicio").remove(),$(".capaInvisible").remove()}),fuegos=function(){let a=i(100,40),s=2,e=4;for(let o=0;o<a;o++){let a=i(1,s),o=i(1,e),c=$('<div class="divMisil"><img class="misil" src="images/misil'+a+'.png" alt=""><img class="explo" style="width:50%" src="images/explo'+o+'.png"></div>'),p=i(30,1500),n=t(0,10),l=t(500,20);c.css("left",p),$("body").append(c),setTimeout(function(){c.css("display","block"),c.animate({bottom:"+="+l},1500,function(){c.find(".misil").css("display","none"),c.find(".explo").css("display","block"),c.find(".explo").animate({opacity:0,width:"100%"},2e3),c.animate({left:"-=50px"},2e3)})},1e3*n)}}});
+$(function(){
+
+    $(".corte").click(function(){
+        $(".cinta").css("display","none");
+        $(".cintaRota1").css("display","block");
+        $(".cintaRota2").css("display","block");
+
+        setTimeout(function(){
+            
+            $(".cintaRota1").css("transform","rotate(80deg)");
+            $(".cintaRota2").css("transform","rotate(-80deg)");
+            fuegos();
+            // $(".fireworks").css("display","block");
+            // $(".fireworks").animate({"top":"-=200px"},5000);
+        },100);
+        setTimeout(function(){
+           // location.href="https://vainsainnova.com.pe/";
+        },5000);
+    });
+    let num= 1;
+    $(".capaInvisible").click(function(){
+        $(".capaOscura").remove();
+        $(".divCopiar").css("display","none");
+        if($(".copiar").length==num) {
+            $(".capaInvisible").remove();
+            
+            $(".frase_final").css("display","block");
+            $(".cinta").css("display","block");
+            $("body").append($("<div class='capaOscura' style='position:fixed;top:0;width:100%;height:100%'></div>"));
+            $("html").scrollTop(0);
+            
+            $(".cinta").css("cursor",'url("images/tijera2.png") 50 50,pointer');
+            return;
+        }
+
+        creaCapas($(".copiar").eq(num));
+
+        
+        mostrarDivCapa($(".divCopiar"+num));
+        
+        
+        switch (num) {
+            case 1:
+                $(".divCopiar"+num).css({
+                    "left":$(".copiar").eq(num).offset().left+300,
+                    "top":$(".copiar").eq(num).offset().top+150
+                    });
+                break;
+            case 2:
+                $(".divCopiar"+num).css({
+                    "left":$(".copiar").eq(num).offset().left+$(".copiar").eq(num).width()+parseInt($(".copiar").eq(num).css("padding-left"))+parseInt($(".copiar").eq(num).css("padding-right")) + 100,
+                    "top":$(".copiar").eq(num).offset().top+100
+                    });
+                break;
+            case 3:
+                $(".divCopiar"+num).css({
+                    "left":"50%",
+                    "top":$(".copiar").eq(num).offset().top-200
+                    });
+                break;
+            default:
+                break;
+        }
+
+        num++;
+        
+    });
+
+    mostrarDivCapa = function(miDiv){
+
+        let div = $(miDiv);
+
+        div.css("display","block");
+        div.find("img").css("opacity","0");
+        div.find("img").animate({opacity:1},1000);
+
+    }
+
+    creaCapa = function(){
+        return $("<div class='capaOscura'></div>").clone();
+    }
+
+    let creaCapas = function(value){
+        let div = $(value),
+            top = div.offset().top,
+            left = div.offset().left,
+            width = div.width()+parseInt(div.css("padding-left"))+parseInt(div.css("padding-right")),
+            height = div.height()+parseInt(div.css("padding-bottom"))+parseInt(div.css("padding-top"));
+        
+      
+        let pIzq = left,
+            pDer = pIzq + width,
+            pArr = top,
+            pAba = top + height;
+
+        let capaIzquierda = creaCapa().css({top:0,height:$("html").height(),width:left}),
+            capaDerecha = creaCapa().css({top:0,left:pDer,height:$("html").height(),width:$("html").width()-pDer}),
+            capaArriba = creaCapa().css({top:0,left:pIzq,height:pArr,width:width}),
+            capaAbajo = creaCapa().css({top:pAba,left:pIzq,height:$("html").height()-pAba,width:width});
+
+
+        $("body").append(capaIzquierda);
+        $("body").append(capaDerecha);
+        $("body").append(capaArriba);
+        $("body").append(capaAbajo);
+        $("html").scrollTop(top-100)
+    }
+
+    $("#siClaro").click(function(){
+        $(".capaInicio").remove();
+        creaCapas($(".copiar").eq(0));
+        $(".divCopiar0").css("display","block");
+        $(".divCopiar0").css("left",$(".copiar").eq(0).offset().left-500);
+        $(".divCopiar0 img").css("opacity","0");
+        $(".divCopiar0 img").animate({opacity:1},3000);
+    });
+    $("#site").click(function(){
+        $(".capaInicio").remove();
+        $(".capaInvisible").remove();
+    });
+
+    function getRandom(min, max) {
+        return Math.floor(Math.random() * (max+1 - min)) + min;
+    }
+    function getRandomFloat(min, max) {
+        return Math.random() * (max+1 - min) + min;
+    }
+
+    fuegos = function(){
+        //crea misiles
+        let cantidad = getRandom(100,40),
+            cantTipoMisil = 2,
+            cantTipoExplo = 5;
+
+        for (let i = 0; i < cantidad ; i++) {
+            let tipoMisil = getRandom(1,cantTipoMisil),
+                tipoExplo = getRandom(1,cantTipoExplo),
+                misil = $('<div class="divMisil"><img class="misil" src="images/misil'+tipoMisil+'.png" alt=""><img class="explo" style="width:50%" src="images/explo'+tipoExplo+'.png"></div>'),
+                left = getRandom(30,1500),
+                lanz = getRandomFloat(0,10),
+                altura = getRandomFloat(500,20);
+
+            misil.css("left",left);
+            $("body").append(misil);
+            setTimeout(function(){
+                misil.css("display","block");
+                
+
+                misil.animate({"bottom":"+="+altura},1500,function(){
+                    misil.find(".misil").css("display","none");
+                    misil.find(".explo").css("display","block");
+
+                    let wi = misil.find(".explo").width()/2,
+                    he = misil.find(".explo").height()/2;
+
+                    misil.find(".explo").animate({opacity:0,width:"100%"},2000);
+                    misil.animate({left:"-="+wi+"px",bottom:"-="+he+"px"},2000);
+
+                });
+            },lanz*1000);
+
+        }
+
+        
+    }
+
+
+    
+});
