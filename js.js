@@ -7,15 +7,17 @@ $(function(){
 
         setTimeout(function(){
             
-            $(".cintaRota1").css("transform","rotate(80deg)");
+            $(".cintaRota1").css("transform","rotate(130deg)");
             $(".cintaRota2").css("transform","rotate(-80deg)");
             fuegos();
             // $(".fireworks").css("display","block");
             // $(".fireworks").animate({"top":"-=200px"},5000);
         },100);
         setTimeout(function(){
-           // location.href="https://vainsainnova.com.pe/";
+            location.href="https://vainsainnova.com.pe/";
         },5000);
+
+       
     });
     let num= 1;
     $(".capaInvisible").click(function(){
@@ -29,7 +31,7 @@ $(function(){
             $("body").append($("<div class='capaOscura' style='position:fixed;top:0;width:100%;height:100%'></div>"));
             $("html").scrollTop(0);
             
-            $(".cinta").css("cursor",'url("images/tijera2.png") 50 50,pointer');
+            // $(".cinta").css("cursor",'url("images/tijera_1.png") 50 50,pointer');
             return;
         }
 
@@ -72,7 +74,7 @@ $(function(){
 
         div.css("display","block");
         div.find("img").css("opacity","0");
-        div.find("img").animate({opacity:1},1000);
+        div.find("img").animate({opacity:1},2000);
 
     }
 
@@ -115,8 +117,8 @@ $(function(){
         $(".divCopiar0 img").animate({opacity:1},3000);
     });
     $("#site").click(function(){
-        $(".capaInicio").remove();
-        $(".capaInvisible").remove();
+       
+        location.href="https://vainsainnova.com.pe/";   
     });
 
     function getRandom(min, max) {
@@ -128,40 +130,47 @@ $(function(){
 
     fuegos = function(){
         //crea misiles
-        let cantidad = getRandom(100,40),
+        let cantidad = getRandom(200,40),
             cantTipoMisil = 2,
             cantTipoExplo = 5;
 
         for (let i = 0; i < cantidad ; i++) {
             let tipoMisil = getRandom(1,cantTipoMisil),
-                tipoExplo = getRandom(1,cantTipoExplo),
-                misil = $('<div class="divMisil"><img class="misil" src="images/misil'+tipoMisil+'.png" alt=""><img class="explo" style="width:50%" src="images/explo'+tipoExplo+'.png"></div>'),
-                left = getRandom(30,1500),
-                lanz = getRandomFloat(0,10),
-                altura = getRandomFloat(500,20);
-
-            misil.css("left",left);
-            $("body").append(misil);
-            setTimeout(function(){
-                misil.css("display","block");
-                
-
-                misil.animate({"bottom":"+="+altura},1500,function(){
-                    misil.find(".misil").css("display","none");
-                    misil.find(".explo").css("display","block");
-
-                    let wi = misil.find(".explo").width()/2,
-                    he = misil.find(".explo").height()/2;
-
-                    misil.find(".explo").animate({opacity:0,width:"100%"},2000);
-                    misil.animate({left:"-="+wi+"px",bottom:"-="+he+"px"},2000);
-
-                });
-            },lanz*1000);
+                tipoExplo = getRandom(1,cantTipoExplo);
+            
+                crearMisil (tipoMisil,tipoExplo);
 
         }
+        
 
         
+    }
+
+    crearMisil = function(tipoMisil, tipoExplo){
+            
+        let misil = $('<div class="divMisil"><img class="misil" src="images/misil'+tipoMisil+'.png" alt=""><img class="explo" style="width:50%" src="images/explo'+tipoExplo+'.png"></div>'),
+            left = getRandom(30,1500),
+            lanz = getRandomFloat(0,10),
+            altura = getRandomFloat(500,20);
+
+        misil.css("left",left);
+        $("body").append(misil);
+        setTimeout(function(){
+            misil.css("display","block");
+            
+
+            misil.animate({"bottom":"+="+altura},1500,function(){
+                misil.find(".misil").css("display","none");
+                misil.find(".explo").css("display","block");
+
+                let wi = misil.find(".explo").width()/2,
+                he = misil.find(".explo").height()/2;
+
+                misil.find(".explo").animate({opacity:0,width:"100%"},2000);
+                misil.animate({left:"-="+wi+"px",bottom:"-="+he+"px"},2000);
+
+            });
+        },lanz*1000);
     }
 
 

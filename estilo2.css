@@ -70,6 +70,12 @@
     left: 0;
     display: none;
     z-index: 3;
+    cursor: url("images/tijera_1.png") 50 50,pointer;
+
+}
+
+.cinta:active{
+    cursor: url("images/tijera_2.png") 50 50,pointer;
 }
 .cintaRota1{
     text-align: left;
@@ -251,5 +257,5 @@
 }
 .explo{
     display: none;
-    width: 50%;
+    width: 10%;
 }
