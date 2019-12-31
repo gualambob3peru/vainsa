@@ -15,7 +15,7 @@ $(function(){
         },100);
         setTimeout(function(){
             location.href="https://vainsainnova.com.pe/";
-        },5000);
+        },11000);
 
        
     });
