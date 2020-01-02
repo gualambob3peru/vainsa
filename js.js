@@ -110,6 +110,7 @@ $(function(){
 
     $("#siClaro").click(function(){
         $(".capaInicio").remove();
+        $(".divFLotaAtras").css("display","block")
         creaCapas($(".copiar").eq(0));
         $(".divCopiar0").css("display","block");
         $(".divCopiar0").css("left",$(".copiar").eq(0).offset().left-500);

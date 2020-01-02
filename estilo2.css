@@ -259,3 +259,13 @@
     display: none;
     width: 10%;
 }
+
+.divFLotaAtras{
+    position: fixed;
+    top: 40px;
+    left: 58px;
+    width: 300px;
+    height: 100px;
+    z-index: 10;
+    display: none;
+}
