@@ -20,12 +20,19 @@ $(function(){
        
     });
     let num= 1;
+
+    $(".clickAtras").click(function(){
+        num = $(".copiar").length;
+        $(".capaInicio").remove();
+        $(".divFLotaAtras").css("display","block");
+        $(".capaInvisible").click();
+    });
     $(".capaInvisible").click(function(){
         $(".capaOscura").remove();
         $(".divCopiar").css("display","none");
         if($(".copiar").length==num) {
             $(".capaInvisible").remove();
-            
+            $(".clickAtras").remove();
             $(".frase_final").css("display","block");
             $(".cinta").css("display","block");
             $("body").append($("<div class='capaOscura' style='position:fixed;top:0;width:100%;height:100%'></div>"));
@@ -118,12 +125,9 @@ $(function(){
         $(".divCopiar0 img").animate({opacity:1},3000);
     });
     $("#site").click(function(){
-        num = $(".copiar").length;
-        $(".capaInicio").remove();
-        $(".divFLotaAtras").css("display","block");
-        $(".capaInvisible").click();
+        
 
-        //location.href="https://vainsainnova.com.pe/";   
+        location.href="https://vainsainnova.com.pe/";   
     });
 
     function getRandom(min, max) {
