@@ -51,20 +51,23 @@ $(function(){
         switch (num) {
             case 1:
                 $(".divCopiar"+num).css({
-                    "left":$(".copiar").eq(num).offset().left+300,
-                    "top":$(".copiar").eq(num).offset().top+150
+                  
+                    "top":$(".copiar").eq(num).offset().top+150,
+                  
                     });
                 break;
             case 2:
                 $(".divCopiar"+num).css({
-                    "left":$(".copiar").eq(num).offset().left+$(".copiar").eq(num).width()+parseInt($(".copiar").eq(num).css("padding-left"))+parseInt($(".copiar").eq(num).css("padding-right")) + 100,
-                    "top":$(".copiar").eq(num).offset().top+100
+                    "left":"54%",
+                    "top":$(".copiar").eq(num).offset().top+100,
+                    "width":"auto"
                     });
                 break;
             case 3:
                 $(".divCopiar"+num).css({
                     "left":"50%",
-                    "top":$(".copiar").eq(num).offset().top-200
+                    "top":$(".copiar").eq(num).offset().top-300,
+                    "width":"auto"
                     });
                 break;
             default:
@@ -120,7 +123,7 @@ $(function(){
         $(".divFLotaAtras").css("display","block")
         creaCapas($(".copiar").eq(0));
         $(".divCopiar0").css("display","block");
-        $(".divCopiar0").css("left",$(".copiar").eq(0).offset().left-500);
+        $(".divCopiar0").css("right","0");
         $(".divCopiar0 img").css("opacity","0");
         $(".divCopiar0 img").animate({opacity:1},3000);
     });

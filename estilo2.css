@@ -135,7 +135,7 @@
 }
 
 .divCopiar0{
-    top:100px;
+    top:200px;
 }
 .colorCeleste{
     color: #00A1FF;
@@ -164,7 +164,7 @@
 }
 
 .barraAzul1{
-    height: 77px;
+    height: auto;
 }
 .barraCentral1{
     
@@ -202,13 +202,24 @@
 .flecha1{
     width: 100px;
     position: absolute;
+    left: -49px;
     top: -53px;
-    transform: rotate(167deg);
+    transform: rotate(85deg);
 }
+
+@media (max-width: 600px) {
+    .flecha1 {
+      display: none;
+    }
+    .flecha2 {
+        display: none;
+      }
+    
+  }
 
 
 .flecha2{
-    left:-150px;
+    left:-124px;
      width: 100px;
      position: absolute;
      top: -18px;
@@ -216,7 +227,7 @@
 }
 
 .flecha3{
-    left: 497px;
+    left: 381px;
     width: 100px;
     position: absolute;
     top: -20px;
@@ -236,6 +247,18 @@
     transform: rotate(109deg);
     left: -118px;
 }
+
+.divCopiar1{
+    left:35%;
+    width: auto;
+}
+
+@media (max-width: 600px) {
+    .divCopiar1 {
+        left:54%;
+    } 
+}
+
 
 .corte{
     height: 191px;
