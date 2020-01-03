@@ -14,7 +14,7 @@ $(function(){
             // $(".fireworks").animate({"top":"-=200px"},5000);
         },100);
         setTimeout(function(){
-            location.href="https://vainsainnova.com.pe/";
+            //location.href="https://vainsainnova.com.pe/";
         },11000);
 
        
@@ -136,8 +136,14 @@ $(function(){
             cantTipoExplo = 5;
 
         for (let i = 0; i < cantidad ; i++) {
-            let tipoMisil = getRandom(1,cantTipoMisil),
-                tipoExplo = getRandom(1,cantTipoExplo);
+            let tipoMisil = getRandom(1,cantTipoMisil);
+
+            if(tipoMisil==1){
+                tipoExplo = getRandom(3,5);
+            }else{
+                tipoExplo = getRandom(1,2);
+            }
+                
             
                 crearMisil (tipoMisil,tipoExplo);
 
@@ -155,14 +161,24 @@ $(function(){
             altura = getRandomFloat(500,400);
 
         misil.css("left",left);
+
+        
+
         $("body").append(misil);
+        
+
         setTimeout(function(){
             misil.css("display","block");
             
+            
 
-            misil.animate({"bottom":"+="+altura},1500,function(){
+            misil.animate({"bottom":"+="+altura,"opacity":"1"},1500,function(){
                 misil.find(".misil").css("display","none");
                 misil.find(".explo").css("display","block");
+
+                let exploLeft = -1* (misil.find(".misil").width() + misil.find(".explo").width())/2;
+            console.log(exploLeft);
+            misil.find(".explo").css("left",exploLeft);
 
                 let wi = misil.find(".explo").width()/2,
                 he = misil.find(".explo").height()/2;

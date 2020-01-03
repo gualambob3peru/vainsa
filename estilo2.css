@@ -251,6 +251,7 @@
     left: 100px;
     z-index: 5;
     display: none;
+    opacity: 0;
 }
 .misil{
 
@@ -258,6 +259,8 @@
 .explo{
     display: none;
     width: 10%;
+    position: relative;
+  
 }
 
 .divFLotaAtras{
