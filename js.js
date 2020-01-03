@@ -125,9 +125,11 @@ $(function(){
         $(".divCopiar0 img").animate({opacity:1},3000);
     });
     $("#site").click(function(){
-        
-
-        location.href="https://vainsainnova.com.pe/";   
+        num = $(".copiar").length;
+        $(".capaInicio").remove();
+        $(".divFLotaAtras").css("display","block");
+        $(".capaInvisible").click();
+        //location.href="https://vainsainnova.com.pe/";   
     });
 
     function getRandom(min, max) {
