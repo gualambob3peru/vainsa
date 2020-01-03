@@ -80,7 +80,7 @@
 .cintaRota1{
     text-align: left;
     position: fixed;
-    bottom: 200px;
+    bottom: 30px;
     left: 0;
     display: none;
     z-index: 3;
@@ -90,7 +90,7 @@
 .cintaRota2{
     text-align: right;
     position: fixed;
-    bottom: 200px;
+    bottom: 30px;
     left: 0;
     display: none;
     z-index: 3;

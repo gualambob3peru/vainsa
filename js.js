@@ -152,7 +152,7 @@ $(function(){
         let misil = $('<div class="divMisil"><img class="misil" src="images/misil'+tipoMisil+'.png" alt=""><img class="explo" style="width:50%" src="images/explo'+tipoExplo+'.png"></div>'),
             left = getRandom(30,1500),
             lanz = getRandomFloat(0,10),
-            altura = getRandomFloat(500,20);
+            altura = getRandomFloat(500,400);
 
         misil.css("left",left);
         $("body").append(misil);
