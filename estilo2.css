@@ -33,6 +33,27 @@
         font-family: 'DINPro Medium';
         
     }
+
+    .colNuevo{
+        display: none;
+    }
+
+    .narbar{
+        margin: 0 auto;
+    }
+    @media (max-width: 600px) {
+        .narbar{
+            margin: 0;
+        }
+        .colNuevo{
+            display: block;
+        }
+    }
+
+    .miMenu img{
+        height: 31px;
+        margin-bottom: 9px;
+    }
 .boton{
     background: transparent;
     border: 1px solid white;
@@ -56,8 +77,8 @@
 .frase_final{
     text-align: center;
     position: fixed;
-    bottom: 300px;
-    left: 0;
+    bottom: 280px;
+    width: 100%;
     display: none;
     z-index: 3;
 }
