@@ -8,7 +8,7 @@ $(function(){
         setTimeout(function(){
             
             $(".cintaRota1").css("transform","rotate(130deg)");
-            $(".cintaRota2").css("transform","rotate(-80deg)");
+            $(".cintaRota2").css("transform","rotate(-130deg)");
             fuegos();
             // $(".fireworks").css("display","block");
             // $(".fireworks").animate({"top":"-=200px"},5000);

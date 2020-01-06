@@ -54,6 +54,15 @@
         height: 31px;
         margin-bottom: 9px;
     }
+
+    @media (max-width: 600px) {
+        .miMenu img{
+            height: 20px;
+        }
+        .miMenu a{
+            padding:0;
+        }
+    }
 .boton{
     background: transparent;
     border: 1px solid white;
@@ -87,7 +96,7 @@
     width: 100%;
     text-align: center;
     position: fixed;
-    bottom: 30px;
+    
     left: 0;
     display: none;
     z-index: 3;
@@ -98,10 +107,10 @@
 .cinta:active{
     cursor: url("images/tijera_2.png") 50 50,pointer;
 }
+
 .cintaRota1{
     text-align: left;
     position: fixed;
-    bottom: 30px;
     left: 0;
     display: none;
     z-index: 3;
@@ -111,7 +120,6 @@
 .cintaRota2{
     text-align: right;
     position: fixed;
-    bottom: 30px;
     left: 0;
     display: none;
     z-index: 3;
