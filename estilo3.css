@@ -1,0 +1,332 @@
+@font-face {
+    font-family: 'DINPro Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('DINPro Light'), url('fonts/DINPro-Light tr.woff') format('woff');
+    }
+    
+    
+    @font-face {
+    font-family: 'DINPro Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: local('DINPro Medium'), url('fonts/DINPro-Medium tr.woff') format('woff');
+    }
+    
+    
+    @font-face {
+    font-family: 'DINPro Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('DINPro Bold'), url('fonts/DINPro-Bold tr.woff') format('woff');
+    }
+    
+    
+    @font-face {
+    font-family: 'DINPro Black';
+    font-style: normal;
+    font-weight: normal;
+    src: local('DINPro Black'), url('fonts/DINPro-Black tr.woff') format('woff');
+    }
+
+    body{
+        font-family: 'DINPro Medium';
+        
+    }
+
+    .colNuevo{
+        display: none;
+    }
+
+    .narbar{
+        margin: 0 auto;
+    }
+    @media (max-width: 600px) {
+        .nav-link{
+            color: #012f65 !important;
+        }
+        .navbar-nav{
+            margin: 0;
+            text-align: left !important;
+        }
+        .colNuevo{
+            display: block;
+        }
+    }
+
+    .miMenu img{
+        height: 31px;
+        margin-bottom: 9px;
+    }
+
+    @media (max-width: 600px) {
+        .miMenu img{
+            display: none;
+        }
+        .miMenu a{
+            padding:0;
+        }
+    }
+.boton{
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding:5px 25px;
+}
+.boton:hover{
+    background: white;
+    border: 1px solid white;
+    color: #011752;
+}
+.fireworks{
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    display: none;
+    z-index: 2;
+}
+
+.frase_final{
+    text-align: center;
+    position: fixed;
+    bottom: 280px;
+    width: 100%;
+    display: none;
+    z-index: 3;
+}
+
+.cinta{
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    
+    left: 0;
+    display: none;
+    z-index: 3;
+    cursor: url("images/tijera_1.png") 50 50,pointer;
+
+}
+
+.cinta:active{
+    cursor: url("images/tijera_2.png") 50 50,pointer;
+}
+
+.cintaRota1{
+    text-align: left;
+    position: fixed;
+    left: 0;
+    display: none;
+    z-index: 3;
+    transition-duration: 4s;
+    transform-origin: left;
+}
+.cintaRota2{
+    text-align: right;
+    position: fixed;
+    left: 0;
+    display: none;
+    z-index: 3;
+    transform-origin: right;
+    transition-duration: 4s;
+}
+
+.capaOscura{
+    background: #011752;
+    opacity: 0.9;
+    position: absolute;
+}
+
+
+.capaInvisible{
+    background: #011752;
+    opacity: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    top: 0;
+    
+}
+
+.capaInicio{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #011752;
+    top: 0;
+    z-index: 3;
+    opacity: 0.9;
+    
+}
+
+.divCopiar{
+    position: absolute;
+    color: white;
+    z-index: 2;
+    display: none;
+}
+
+.divCopiar0{
+    top:200px;
+}
+.colorCeleste{
+    color: #00A1FF;
+}
+.colorAzul{
+    color:#012f65;
+}
+.fondoCeleste{
+    background: #00A1FF;
+}
+
+.fondoCeleste2{
+    background: #248fa4;
+}
+
+.fondoAzul{
+    background: #012f65;
+    border-bottom: 3px solid #00A1FF;
+}
+
+.fondoPlomo{
+    background: #2b2929d6;
+}
+
+.barraCeleste1{
+    height: 51px;
+    font-size: 15px;
+}
+
+.barraAzul1{
+    height: auto;
+}
+.barraCentral1{
+    
+}
+.barraPlomo1{
+    padding-top: 100px;
+    padding-bottom: 150px;
+}
+
+.barraCeleste2{
+    padding-top: 100px;
+    padding-bottom: 150px;
+}
+.barraBlanco1{
+    height: 74px;
+    color: #00448f;;
+}
+
+.inputBuscar{
+    background: transparent;
+    color:#ffffe6;
+    border-width: 0 0 1px 0;
+    width: 222px;
+}
+.f10{
+    font-size: 10px;;
+}
+.f18{
+    font-size: 18px;;
+}
+
+.f22{
+    font-size: 22px;;
+}
+.flecha1{
+    width: 100px;
+    position: absolute;
+    left: -49px;
+    top: -53px;
+    transform: rotate(85deg);
+}
+
+@media (max-width: 600px) {
+    .flecha1 {
+      display: none;
+    }
+    .flecha2 {
+        display: none;
+      }
+    
+  }
+
+
+.flecha2{
+    left:-124px;
+     width: 100px;
+     position: absolute;
+     top: -18px;
+     transform: rotate(88deg);
+}
+
+.flecha3{
+    left: 381px;
+    width: 100px;
+    position: absolute;
+    top: -20px;
+    transform: rotate(-89deg);
+}
+.flecha4{
+    width: 100px;
+    position: absolute;
+    top: -53px;
+    transform: rotate(167deg);
+    left: -83px;
+}
+.flecha5{
+    width: 100px;
+    position: absolute;
+    top: 88px;
+    transform: rotate(109deg);
+    left: -118px;
+}
+
+.divCopiar1{
+    left:35%;
+    width: auto;
+}
+
+@media (max-width: 600px) {
+    .divCopiar1 {
+        left:54%;
+    } 
+}
+
+
+.corte{
+    height: 191px;
+    position: absolute;
+    left: 47.7%;
+    width: 72px;
+    top: 0;
+}
+
+.divMisil{
+    position: fixed;
+    bottom: 100px;
+    left: 100px;
+    z-index: 5;
+    display: none;
+    opacity: 0;
+}
+.misil{
+
+}
+.explo{
+    display: none;
+    width: 10%;
+    position: relative;
+  
+}
+
+.divFLotaAtras{
+    position: fixed;
+    top: 40px;
+    left: 58px;
+    width: 300px;
+    height: 100px;
+    z-index: 3;
+    display: none;
+}
