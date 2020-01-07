@@ -43,7 +43,7 @@
     }
     @media (max-width: 600px) {
         .nav-link{
-            color: #012f65 !important;
+            color: #02549E !important;
         }
         .navbar-nav{
             margin: 0;
@@ -51,6 +51,11 @@
         }
         .colNuevo{
             display: block;
+        }
+
+        .navbar-nav li{
+            color:#02549E;
+            font-size:14px;
         }
     }
 
@@ -90,7 +95,7 @@
 .frase_final{
     text-align: center;
     position: fixed;
-    bottom: 280px;
+    bottom: 230px;
     width: 100%;
     display: none;
     z-index: 3;
@@ -248,6 +253,16 @@
     }
     .flecha2 {
         display: none;
+      }
+    
+      .flecha3{
+            top: -81px !important;
+            left: -12px !important;
+            transform: rotate(-172deg) !important;
+      }
+
+      .flecha5{
+          top:188px !important;
       }
     
   }
