@@ -246,7 +246,7 @@
 .flecha1{
     width: 100px;
     position: absolute;
-    left: -49px;
+    left: -74px;
     top: -53px;
     transform: rotate(85deg);
 }
@@ -281,7 +281,7 @@
 }
 
 .flecha3{
-    left: 381px;
+    left: 205px;
     width: 100px;
     position: absolute;
     top: -20px;
@@ -297,13 +297,13 @@
 .flecha5{
     width: 100px;
     position: absolute;
-    top: 88px;
+    top: 131px;
     transform: rotate(109deg);
-    left: -118px;
+    left: -81px;
 }
 
 .divCopiar1{
-    left:35%;
+    left:42%;
     width: auto;
 }
 
