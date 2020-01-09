@@ -47,6 +47,11 @@
     .narbar{
         margin: 0 auto;
     }
+
+    .navbar-nav li{
+        width:14.28%;
+    }
+
     @media (max-width: 600px) {
         .nav-link{
             color: #02549E !important;
@@ -300,7 +305,7 @@
 }
 
 .flecha3{
-    left: 205px;
+    left: 159px;
     width: 100px;
     position: absolute;
     top: -20px;
@@ -322,7 +327,7 @@
 }
 
 .divCopiar1{
-    left:42%;
+    left:45%;
     width: auto;
 }
 
