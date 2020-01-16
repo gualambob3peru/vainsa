@@ -106,7 +106,7 @@
 .frase_final{
     text-align: center;
     position: fixed;
-    bottom: 230px;
+    bottom: 260px;
     width: 100%;
     display: none;
     z-index: 3;
@@ -186,7 +186,7 @@
 
 .divCopiar0{
     top:200px;
-    right: 10px;
+    right: 100px;
 }
 
 @media (max-width: 600px) {
@@ -218,7 +218,7 @@
 }
 
 .fondoPlomo{
-    background: #2b2929d6;
+    background: #000;
 }
 
 .barraCeleste1{
@@ -290,14 +290,14 @@
       }
 
       .flecha5{
-          top:188px !important;
+          top:164px !important;
       }
     
   }
 
 
 .flecha2{
-    left:-124px;
+    left:-92px;
      width: 100px;
      position: absolute;
      top: -18px;
@@ -333,7 +333,19 @@
 
 @media (max-width: 600px) {
     .divCopiar1 {
-        left:54%;
+        left:46%;
+    } 
+}
+
+.divCopiar2{
+    left:52%;
+    width: 186px;
+}
+
+@media (max-width: 600px) {
+    .divCopiar2 {
+        width: 166px;
+        left: 50%;
     } 
 }
 

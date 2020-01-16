@@ -58,15 +58,14 @@ $(function(){
                 break;
             case 2:
                 $(".divCopiar"+num).css({
-                    "left":"54%",
-                    "top":$(".copiar").eq(num).offset().top+100,
-                    "width":"auto"
+               
+                    "top":$(".copiar").eq(num).offset().top+100
                     });
                 break;
             case 3:
                 $(".divCopiar"+num).css({
                     "left":"50%",
-                    "top":$(".copiar").eq(num).offset().top-300,
+                    "top":$(".copiar").eq(num).offset().top-250,
                     "width":"auto"
                     });
                 break;
@@ -122,8 +121,8 @@ $(function(){
         $(".capaInicio").remove();
         $(".divFLotaAtras").css("display","block")
         creaCapas($(".copiar").eq(0));
-        $(".divCopiar0").css("display","block");
-        $(".divCopiar0").css("right","0");
+         $(".divCopiar0").css("display","block");
+        // $(".divCopiar0").css("right","100px");
         $(".divCopiar0 img").css("opacity","0");
         $(".divCopiar0 img").animate({opacity:1},3000);
     });
