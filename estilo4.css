@@ -106,10 +106,16 @@
 .frase_final{
     text-align: center;
     position: fixed;
-    bottom: 260px;
+    bottom: 330px;
     width: 100%;
     display: none;
     z-index: 3;
+}
+
+@media (max-width: 600px) {
+    .frase_final{
+        bottom:250px;
+    }
 }
 
 .cinta{
